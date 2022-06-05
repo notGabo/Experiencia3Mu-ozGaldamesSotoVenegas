@@ -20,7 +20,7 @@ $(document).ready(function (){
       type: 'POST',
       data: {csrfmiddlewaretoken: csrftoken},
       success: function(){
-        location.reload();
+        location.reload();        
       } 
     })
  });

@@ -5,7 +5,6 @@ from .views import index, contactanos, exteriores, interiores, arboles, quienesS
 
 urlpatterns = [
     path('', index, name='index'),
-    path('index.html', index, name='index'),
     path('contactanos.html', contactanos, name='Contactanos'),
     path('PlantasExteriores.html', exteriores, name='Exteriores'),
     path('PlantasInteriores.html', interiores, name='Interiores'),

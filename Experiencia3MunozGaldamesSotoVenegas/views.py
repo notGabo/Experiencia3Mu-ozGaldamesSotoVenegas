@@ -6,9 +6,15 @@ from .models import Usuarios
 def index(request):
     context = {} 
     context['esta_logueado'] = False
+    context['error_login'] = False
     if request.method == 'GET':
+        if 'error_login' in request.session:
+            if request.session['error_login']:
+               context['error_login'] = True 
+               request.session['error_login'] = False
         if 'user' in request.session:
             context['esta_logueado'] = True
+            context['Usuario'] = request.session['user']
         return render(request, 'Experiencia3MunozGaldamesSotoVenegas/index.html', context)
     elif request.method == 'POST':
         if 'user' in request.session:
@@ -27,13 +33,16 @@ def index(request):
             if Usuarios.objects.filter(username = username, password = password).exists():
                 with Usuarios.objects.get(username = username) as user:
                     request.session['user'] = model_to_dict(user)
+                context['esta_logueado'] = True
+                request.session['error_login'] = False
                 print('login correcto')
             else:
+                request.session['error_login'] = True
                 print('login incorrecto')
             print('logueando')
         else:
             print('error')            
-        return render(request, 'Experiencia3MunozGaldamesSotoVenegas/index.html',context)
+        return HttpResponseRedirect('/')
 
 def logout(request):
     request.session.flush()
@@ -42,7 +51,6 @@ def logout(request):
     return response
 
 def contactanos(request):
-    print(request.session['user'])
     return render(request, 'Experiencia3MunozGaldamesSotoVenegas/contactanos.html')
 
 def exteriores(request):
