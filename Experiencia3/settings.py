@@ -81,7 +81,8 @@ WSGI_APPLICATION = 'Experiencia3.wsgi.application'
 
 
 
-cx_Oracle.init_oracle_client(lib_dir='/instantclientExperiencia3')
+#cx_Oracle.init_oracle_client(lib_dir='/instantclientExperiencia3')
+cx_Oracle.init_oracle_client(lib_dir='C:/instantclientExperiencia3')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
