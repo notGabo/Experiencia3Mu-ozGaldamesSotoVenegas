@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import cx_Oracle
-from django.urls import reverse_lazy
     
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Experiencia3MunozGaldamesSotoVenegas',
+    'Experiencia3'
 ]
 
 MIDDLEWARE = [
@@ -86,7 +86,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         #'NAME': 'tcps://adb.sa-santiago-1.oraclecloud.com:1522/g33c30b97259aa9_dbweb_tpurgent.adb.oraclecloud.com?wallet_location=/instantclient_21_3/network/admin',
-        'NAME': 'dbweb_tpurgent',
+        'NAME': 'dbWeb_medium',
         'USER': 'dbweb',
         'PASSWORD': '!Abcdario12345678'
       }

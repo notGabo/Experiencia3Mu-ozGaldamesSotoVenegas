@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Usuarios
+from .models import Usuarios, FormSolicitud
 
 admin.site.register(Usuarios)
-# Register your models here.
+admin.site.register(FormSolicitud)
+# Register your models here.    

@@ -8,7 +8,7 @@ $(document).ready(function (){
   }, "Porfavor, ingresa un correo valido. Ejemplo: correo@mail.com");
 
   jQuery.validator.addMethod("customNombre", function(value, element) { 
-    return this.optional( element ) || /^([a-zA-Z])+$/.test( value ); 
+    return this.optional( element ) || /^([a-z' 'A-Z])+$/.test( value ); 
     }, "Porfavor, solo letras");
 
 
@@ -19,25 +19,14 @@ $(document).ready(function (){
                 nombreEntrada: {
                     minlength: 3,
                     required: true,
-                    noEspacio: true,
                     customNombre: true
                 },
-                apellidoEntrada: {
-                  required: true,
-                  noEspacio: true,
-                  minlength: 3,
-                  customNombre: true
-                },
+
                 emailEntrada: {
                   required: true,
                   email: true,
                   noEspacio: true,
                   customEmail: true
-                },
-                numeroEntrada: { 
-                  number: true,
-                  minlength: 8,
-                  maxlength: 11
                 },
                 descripcionEntrada:{
                   required: true,
@@ -52,10 +41,6 @@ $(document).ready(function (){
               nombreEntrada: {
                 required: "Porfavor ingresa tu nombre",
                 minlength: "Debes ingresar un nombre de al menos 3 caracteres"
-              },
-              apellidoEntrada: {
-                required: "Porfavor ingresa tu apellido",
-                minlength: "Debes ingresar un apellido de al menos 3 caracteres"
               },
               emailEntrada: {
                 required: "Porfavor ingresa tu correo",
